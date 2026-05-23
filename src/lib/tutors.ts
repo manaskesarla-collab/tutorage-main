@@ -28,6 +28,31 @@ export async function fetchTutors(): Promise<Tutor[]> {
   return (data ?? []) as Tutor[];
 }
 
+export async function fetchTutor(id: string): Promise<Tutor | null> {
+  const { data, error } = await supabase
+    .from("tutors")
+    .select("*")
+    .eq("id", id)
+    .maybeSingle();
+  if (error) throw error;
+  return (data as Tutor) ?? null;
+}
+
+export type InquiryInput = {
+  tutor_id: string;
+  parent_name: string;
+  parent_email: string;
+  parent_phone?: string;
+  student_grade?: string;
+  subject?: string;
+  message: string;
+};
+
+export async function submitInquiry(input: InquiryInput) {
+  const { error } = await supabase.from("inquiries").insert(input);
+  if (error) throw error;
+}
+
 export const ALL_SUBJECTS = [
   "Mathematics", "Physics", "Chemistry", "Biology",
   "English", "Hindi", "Kannada", "Sanskrit",

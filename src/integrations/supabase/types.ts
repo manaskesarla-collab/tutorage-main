@@ -14,6 +14,50 @@ export type Database = {
   }
   public: {
     Tables: {
+      inquiries: {
+        Row: {
+          created_at: string
+          id: string
+          message: string
+          parent_email: string
+          parent_name: string
+          parent_phone: string | null
+          student_grade: string | null
+          subject: string | null
+          tutor_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          message: string
+          parent_email: string
+          parent_name: string
+          parent_phone?: string | null
+          student_grade?: string | null
+          subject?: string | null
+          tutor_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          message?: string
+          parent_email?: string
+          parent_name?: string
+          parent_phone?: string | null
+          student_grade?: string | null
+          subject?: string | null
+          tutor_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "inquiries_tutor_id_fkey"
+            columns: ["tutor_id"]
+            isOneToOne: false
+            referencedRelation: "tutors"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       tutors: {
         Row: {
           bio: string
