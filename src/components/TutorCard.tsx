@@ -11,7 +11,8 @@ const modeLabel: Record<Tutor["mode"], string> = {
 export function TutorCard({ tutor, onHover }: { tutor: Tutor; onHover?: (id: string | null) => void }) {
   return (
     <Link
-      to="/search"
+      to="/tutors/$id"
+      params={{ id: tutor.id }}
       onMouseEnter={() => onHover?.(tutor.id)}
       onMouseLeave={() => onHover?.(null)}
       className="group flex gap-4 rounded-2xl border border-border bg-card p-4 transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-card)]"
