@@ -2,7 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Search, Sparkles, ShieldCheck, MapPin } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import heroImg from "@/assets/hero-tutor.jpg";
+
+// Unsplash stock photo — free to use, no AI generation
+const heroImg =
+  "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1400&q=80";
 
 export const Route = createFileRoute("/")({
   head: () => ({
