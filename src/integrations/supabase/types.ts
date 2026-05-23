@@ -14,7 +14,72 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      tutors: {
+        Row: {
+          bio: string
+          boards: string[]
+          classes: string[]
+          created_at: string
+          hourly_rate: number
+          id: string
+          is_verified: boolean
+          latitude: number
+          locality: string
+          longitude: number
+          mode: string
+          name: string
+          owner_id: string | null
+          photo_url: string
+          rating: number
+          reviews_count: number
+          subjects: string[]
+          updated_at: string
+          years_experience: number
+        }
+        Insert: {
+          bio: string
+          boards?: string[]
+          classes?: string[]
+          created_at?: string
+          hourly_rate: number
+          id?: string
+          is_verified?: boolean
+          latitude: number
+          locality: string
+          longitude: number
+          mode?: string
+          name: string
+          owner_id?: string | null
+          photo_url: string
+          rating?: number
+          reviews_count?: number
+          subjects?: string[]
+          updated_at?: string
+          years_experience?: number
+        }
+        Update: {
+          bio?: string
+          boards?: string[]
+          classes?: string[]
+          created_at?: string
+          hourly_rate?: number
+          id?: string
+          is_verified?: boolean
+          latitude?: number
+          locality?: string
+          longitude?: number
+          mode?: string
+          name?: string
+          owner_id?: string | null
+          photo_url?: string
+          rating?: number
+          reviews_count?: number
+          subjects?: string[]
+          updated_at?: string
+          years_experience?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
